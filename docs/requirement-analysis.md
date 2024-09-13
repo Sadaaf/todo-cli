@@ -17,7 +17,6 @@ We will store the data in json format in local-storage
     "taskStatus": ""
   }
 }
-
 ```
 
 ## Functionality
@@ -31,7 +30,6 @@ deleteTask(taskId)
 
 Fetching tasks list
 
-list() - List all tasks
-list(done) - List all tasks that are done
-list(todo) - List all tasks that are not done
-list(in-progress) - List all tasks that are in progress
+listAllTask() - List all tasks
+listTask(taskId) - List specific task
+list(status) - List all tasks of the status
