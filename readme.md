@@ -13,5 +13,6 @@ Run the following commands to run this project
 
 ````bash
 git clone https://github.com/Sadaaf/todo-cli.git
-node cli.js```
+cd todo-cli
+node cli.js
 ````
