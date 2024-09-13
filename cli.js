@@ -11,6 +11,14 @@ if (!fs.existsSync(filePath)) {
 }
 
 // Read task from the task file
-let data = fs.readFileSync(filePath, "utf-8");
+let data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
 
-console.log(data);
+const createTask = (taskName) => {
+  const taskId = Date.now();
+  const taskData = {
+    taskName: taskName,
+    taskStatus: "todo",
+  };
+  data[taskId] = taskData;
+  console.log(data);
+};
