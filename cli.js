@@ -73,7 +73,8 @@ const createTask = (taskName) => {
   const taskData = {
     taskName: taskName,
     taskStatus: "todo",
-    // TODO Add createdAt and updatedAt
+    createdAt: getTimeNow(),
+    updatedAt: getTimeNow(),
   };
   data[taskId] = taskData;
   console.log(`New task added with taskId ${taskId}`);
@@ -86,8 +87,8 @@ const createTask = (taskName) => {
  * @param {string} taskName - Task Name
  */
 const updateTaskName = (taskId, taskName) => {
-  data[taskId]["taskName"] = taskName;
-  // TODO Update updatedAt
+  data[taskId].taskName = taskName;
+  data[taskId].updatedAt = getTimeNow();
   console.log(`The task name of task with id ${taskId} is updated`);
 };
 
@@ -98,9 +99,8 @@ const updateTaskName = (taskId, taskName) => {
  * @param {string} taskStatus  - Task Status
  */
 const updateTaskStatus = (taskId, taskStatus) => {
-  console.log(taskId);
   data[taskId].taskStatus = taskStatus;
-  // TODO UpdateUpdatedAt
+  data[taskId].updatedAt = getTimeNow();
   console.log(`The task status of task with id ${taskId} is updated`);
 };
 
@@ -118,7 +118,11 @@ const deleteTask = (taskId) => {
  * Shows all created tasks in the console
  */
 const listAllTask = () => {
-  console.log(JSON.stringify(data));
+  Object.keys(data).map((key) =>
+    console.log(
+      `ID: ${key} - Task Name: ${data[key].taskName} - Task Status: ${data[key].taskStatus} - CreatedAt: ${data[key].createdAt} - UpdatedAt: ${data[key].updatedAt}`
+    )
+  );
 };
 
 /**
@@ -144,6 +148,11 @@ const listStatus = (status) => {
   });
   console.log(newData);
 };
+
+////////////
+// Helper //
+////////////
+getTimeNow = () => new Date().toUTCString();
 
 readCliArguments();
 
