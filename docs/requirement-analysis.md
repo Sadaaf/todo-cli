@@ -12,16 +12,12 @@ We will store the data in json format in local-storage
 
 ```json
 {
-    "taskId": {
-        taskName: ""
-        taskStatus: ""},
-    "taskId": {
-        taskName: ""
-        taskStatus: ""},
-    "taskId": {
-        taskName: ""
-        taskStatus: ""},
+  "taskId": {
+    "taskName": "",
+    "taskStatus": ""
+  }
 }
+
 ```
 
 ## Functionality
